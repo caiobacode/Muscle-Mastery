@@ -11,8 +11,8 @@ class Card extends React.Component {
     const { cardImage } = this.props;
     const { cardRare } = this.props;
     const { cardTrunfo } = this.props;
-    function trfl() {
-      if (cardTrunfo === true) {
+    function trfl(Check) {
+      if (Check === true) {
         return (
           <h2 data-testid="trunfo-card">Super Trunfo</h2>
         );
@@ -21,13 +21,13 @@ class Card extends React.Component {
     return (
       <div>
         <h1 data-testid="name-card">{ cardName }</h1>
-        <img src={ cardImage } data-testid="image-card" alt={ cardName } />
-        <textarea data-testid="description-card">{ cardDescription }</textarea>
-        <h3 data-testid="attr1-card">{cardAttr1}</h3>
-        <h3 data-testid="attr2-card">{cardAttr2}</h3>
-        <h3 data-testid="attr3-card">{cardAttr3}</h3>
-        <h2 data-testid="rare-card">{ cardRare }</h2>
-        { trfl() }
+        <img src={ cardImage } alt={ cardName } data-testid="image-card" />
+        <p data-testid="description-card">{ cardDescription }</p>
+        <p data-testid="attr1-card">{cardAttr1}</p>
+        <p data-testid="attr2-card">{cardAttr2}</p>
+        <p data-testid="attr3-card">{cardAttr3}</p>
+        <p data-testid="rare-card">{ cardRare }</p>
+        { trfl(cardTrunfo) }
       </div>
     );
   }
