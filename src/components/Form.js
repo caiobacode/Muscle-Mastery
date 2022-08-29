@@ -59,7 +59,7 @@ class Form extends React.Component {
           onChange={ onInputChange }
         />
         <select
-          nome="cardRare"
+          name="cardRare"
           data-testid="rare-input"
           value={ cardRare }
           onChange={ onInputChange }
@@ -79,7 +79,7 @@ class Form extends React.Component {
           disabled={ isSaveButtonDisabled }
           type="submit"
           data-testid="save-button"
-          value="Submit"
+          value="Salvar"
           onClick={ onSaveButtonClick }
         />
       </form>
