@@ -13,6 +13,7 @@ class App extends React.Component {
     cardRare: '',
     cardTrunfo: false,
     isSaveButtonDisabled: true,
+    hasTrunfo: false,
     cards: [],
 
   };
@@ -21,7 +22,10 @@ class App extends React.Component {
     event.preventDefault();
     const { cardDescription, cardName, cardImage, cardAttr1,
       cardAttr2, cardAttr3, cardRare,
-      cardTrunfo, cards } = this.state;
+      cardTrunfo, cards, hasTrunfo } = this.state;
+    if (cardTrunfo === true) {
+      this.setState({ hasTrunfo: true });
+    }
     this.setState({ cards: [...cards, { cardDescription,
       cardName,
       cardImage,
@@ -29,7 +33,8 @@ class App extends React.Component {
       cardAttr2,
       cardAttr3,
       cardRare,
-      cardTrunfo }],
+      cardTrunfo,
+      hasTrunfo }],
     cardDescription: '',
     cardName: '',
     cardImage: '',
@@ -38,8 +43,7 @@ class App extends React.Component {
     cardAttr3: '0',
     cardRare: '',
     cardTrunfo: false,
-    isSaveButtonDisabled: true }, () => {
-    });
+    isSaveButtonDisabled: true });
   };
 
   ovo1 = () => {
@@ -116,6 +120,7 @@ class App extends React.Component {
       cardRare,
       cardTrunfo,
       isSaveButtonDisabled,
+      hasTrunfo,
     } = this.state;
     return (
       <div>
@@ -132,6 +137,7 @@ class App extends React.Component {
           cardImage={ cardImage }
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
+          hasTrunfo={ hasTrunfo }
         />
         <Card
           cardName={ cardName }
