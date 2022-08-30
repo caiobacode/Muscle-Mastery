@@ -22,7 +22,7 @@ class App extends React.Component {
     event.preventDefault();
     const { cardDescription, cardName, cardImage, cardAttr1,
       cardAttr2, cardAttr3, cardRare,
-      cardTrunfo, cards, hasTrunfo } = this.state;
+      cardTrunfo, cards } = this.state;
     if (cardTrunfo === true) {
       this.setState({ hasTrunfo: true });
     }
@@ -33,8 +33,7 @@ class App extends React.Component {
       cardAttr2,
       cardAttr3,
       cardRare,
-      cardTrunfo,
-      hasTrunfo }],
+      cardTrunfo }],
     cardDescription: '',
     cardName: '',
     cardImage: '',
@@ -121,6 +120,7 @@ class App extends React.Component {
       cardTrunfo,
       isSaveButtonDisabled,
       hasTrunfo,
+      cards,
     } = this.state;
     return (
       <div>
@@ -149,6 +149,17 @@ class App extends React.Component {
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
         />
+        { cards.map((ele) => (<Card
+          key={ ele.cardName }
+          cardName={ ele.cardName }
+          cardDescription={ ele.cardDescription }
+          cardAttr1={ ele.cardAttr1 }
+          cardAttr2={ ele.cardAttr2 }
+          cardAttr3={ ele.cardAttr3 }
+          cardImage={ ele.cardImage }
+          cardRare={ ele.cardRare }
+          cardTrunfo={ ele.cardTrunfo }
+        />)) }
       </div>
     );
   }
