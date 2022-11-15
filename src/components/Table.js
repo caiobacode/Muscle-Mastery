@@ -17,6 +17,7 @@ class Table extends React.Component {
     cards: [],
     nameFilter: '',
     rareFilter: 'todas',
+    trunfoFilter: false,
   };
 
   save = (event) => {
@@ -110,7 +111,11 @@ class Table extends React.Component {
   };
 
   handleFilter = (arr) => {
-    const { nameFilter, rareFilter } = this.state;
+    const { nameFilter, rareFilter, trunfoFilter } = this.state;
+    if (trunfoFilter) {
+      const onlyTrunfo = arr.filter((card) => card.cardTrunfo === true);
+      return onlyTrunfo;
+    }
     const filteredName = arr.filter((card) => card.cardName.includes(nameFilter));
     if (rareFilter === 'todas') return filteredName;
     const rare = filteredName.filter((card) => card.cardRare === rareFilter);
@@ -132,6 +137,7 @@ class Table extends React.Component {
       cards,
       nameFilter,
       rareFilter,
+      trunfoFilter,
     } = this.state;
     const returnHasTrunfo = () => {
       this.setState({ hasTrunfo: false });
@@ -172,6 +178,7 @@ class Table extends React.Component {
         </div>
         <div>
           <input
+            disabled={ trunfoFilter }
             data-testid="name-filter"
             type="text"
             name="nameFilter"
@@ -179,6 +186,7 @@ class Table extends React.Component {
             onChange={ this.handleChange }
           />
           <select
+            disabled={ trunfoFilter }
             data-testid="rare-filter"
             name="rareFilter"
             onChange={ this.handleChange }
@@ -189,6 +197,13 @@ class Table extends React.Component {
             <option>raro</option>
             <option>muito raro</option>
           </select>
+          <input
+            data-testid="trunfo-filter"
+            type="checkbox"
+            name="trunfoFilter"
+            checked={ trunfoFilter }
+            onClick={ this.handleChange }
+          />
           {cardsFiltered.map((ele) => (<Card
             key={ ele.cardName }
             returnHasTrunfo={ returnHasTrunfo }
