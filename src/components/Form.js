@@ -34,7 +34,7 @@ class Form extends React.Component {
       );
     };
     return (
-      <form>
+      <form className='card-form'>
         <input
           name="cardName"
           type="text"

@@ -23,7 +23,7 @@ class Card extends React.Component {
       if (cardTrunfo) returnHasTrunfo();
     };
     return (
-      <div>
+      <div className='card'>
         {
           !removeButton
       && (

@@ -2,6 +2,19 @@ import React from 'react';
 import Form from './Form';
 import Card from './Card';
 
+const actualCards = [
+  {
+    cardDescription: 'ovo com ovo da ovo',
+    cardName: 'ovo',
+    cardImage: 'sla',
+    cardAttr1: 30,
+    cardAttr2: 30,
+    cardAttr3: 30,
+    cardRare: 'Normal',
+    cardTrunfo: false,
+  }
+]
+
 class Table extends React.Component {
   state = {
     cardDescription: '',
@@ -14,7 +27,7 @@ class Table extends React.Component {
     cardTrunfo: false,
     isSaveButtonDisabled: true,
     hasTrunfo: false,
-    cards: [],
+    cards: actualCards,
     nameFilter: '',
     rareFilter: 'todas',
     trunfoFilter: false,
@@ -147,7 +160,7 @@ class Table extends React.Component {
     const cardsFiltered = this.handleFilter(cards);
     return (
       <div>
-        <div>
+        <div className='input-card'>
           <h1>Tryunfo</h1>
           <Form
             onInputChange={ this.handleChange }
@@ -163,6 +176,7 @@ class Table extends React.Component {
             cardTrunfo={ cardTrunfo }
             hasTrunfo={ hasTrunfo }
           />
+          <div className='preview card'>
           <Card
             returnHasTrunfo={ returnHasTrunfo }
             cardPreview={ tru }
@@ -174,9 +188,10 @@ class Table extends React.Component {
             cardImage={ cardImage }
             cardRare={ cardRare }
             cardTrunfo={ cardTrunfo }
-          />
+            />
+          </div>
         </div>
-        <div>
+        <div className='done-cards'>
           <input
             disabled={ trunfoFilter }
             data-testid="name-filter"
