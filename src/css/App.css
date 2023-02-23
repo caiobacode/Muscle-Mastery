@@ -1,0 +1,155 @@
+.main-div {
+  display: flex;
+  justify-content: center;
+}
+
+.preview-card {
+  height: 550px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 30%;
+  border: solid blue 1px;
+  border-radius: 20px;
+}
+
+.card-preview {
+  height: 450px;
+  width: 336px;
+  border: solid green 1px;
+}
+
+.card {
+  margin-top: 25px;
+  height: 350px;
+  width: 275px;
+  border: solid green 1px;
+}
+
+.done-cards {
+  width: 1340px;
+  height: auto;
+  border-radius: 30px;
+  padding: 30px;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  border: solid yellow 1px;
+}
+
+.card-title-div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  background-color: blanchedalmond;
+}
+
+.image-div {
+  width: 100%;
+  height: 175px;
+  display: flex;
+  justify-content: center;
+  background-color: #CCCCCC;
+}
+
+.image-div-preview {
+  width: 100%;
+  height: 225px;
+  display: flex;
+  justify-content: center;
+  background-color: black;
+}
+
+.image-preview {
+  position: absolute;
+  max-width: 336px;
+  max-height: 225px;
+}
+
+.image {
+  position: absolute;
+  max-width: 275px;
+  max-height: 175px;
+}
+
+.image-blur-preview {
+  position: absolute;
+  width: 336px;
+  height: 225px;
+  filter: blur(5px);
+}
+
+.image-blur {
+  position: absolute;
+  width: 275px;
+  height: 175px;
+  filter: blur(3px);
+}
+
+.background-img-preview {
+  position: absolute;
+  max-width: 336px;
+  max-height: 225px;
+}
+
+.background-img {
+  position: absolute;
+  max-width: 275px;
+  max-height: 175px;
+}
+
+.background-img-blur {
+  width: 100%;
+  height: 100%;
+  filter: blur(2px);
+}
+
+/* .red {
+  width: 50px;
+  height: 50px;
+  background-color: red;
+}
+
+.blue {
+  position: relative;
+  bottom: 50px;
+  width: 50px;
+  height: 50px;
+  background-color: blue;
+} */
+
+.filter-div {
+  border: solid 1px tomato;
+  height: 150px;
+  margin-bottom: 50px;
+}
+
+.only-cards-div {
+  border: solid saddlebrown 1px;
+  display: flex;
+  flex-basis: 70%;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  min-height: 400px;
+  max-width: 1300px;
+  height: auto;
+  padding-right: 30px;
+}
+
+.has-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background-color: #1f1714;
+}
+
+.has-scrollbar::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(to right, #b09f69, #615145);
+  border-radius: 5px;
+}
+
+.has-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-image: linear-gradient(to right, #c1b58a, #776455);
+  border-radius: 5px;
+}

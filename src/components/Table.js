@@ -1,16 +1,28 @@
 import React from 'react';
 import Form from './Form';
 import Card from './Card';
+import img1 from '../media/form1.png'
+import img2 from '../media/form2.png'
+import img3 from '../media/form3.png'
+import img4 from '../media/form4.png'
+import img5 from '../media/form5.png'
+
+const allFormImages = [img1, img2, img3, img4, img5]
+const getRamdowImage = () => {
+  const ramdowNumber = Math.floor(Math.random() * 5);
+  return allFormImages[ramdowNumber]
+}
 
 const actualCards = [
   {
-    cardDescription: 'ovo com ovo da ovo',
-    cardName: 'ovo',
-    cardImage: 'sla',
-    cardAttr1: 30,
-    cardAttr2: 30,
-    cardAttr3: 30,
-    cardRare: 'Normal',
+    cardDescription: 'Bodybuilder de 27 anos, campeão 5 vezes seguidas do Mr.Olympia, Chris atualmente é o melhor do mundo.',
+    cardName: 'Chris Bumstead',
+    cardImage: 'https://pbs.twimg.com/profile_images/1408265670521917441/12q0mSTo_400x400.jpg',
+    backGroundImage: img2,
+    cardAttr1: 66,
+    cardAttr2: 69,
+    cardAttr3: 68,
+    cardRare: 'Muito Raro',
     cardTrunfo: false,
   }
 ]
@@ -20,6 +32,7 @@ class Table extends React.Component {
     cardDescription: '',
     cardName: '',
     cardImage: '',
+    backGroundImage: getRamdowImage(),
     cardAttr1: '0',
     cardAttr2: '0',
     cardAttr3: '0',
@@ -35,7 +48,7 @@ class Table extends React.Component {
 
   save = (event) => {
     event.preventDefault();
-    const { cardDescription, cardName, cardImage, cardAttr1,
+    const { cardDescription, cardName, cardImage, backGroundImage, cardAttr1,
       cardAttr2, cardAttr3, cardRare,
       cardTrunfo, cards } = this.state;
     if (cardTrunfo === true) {
@@ -44,6 +57,7 @@ class Table extends React.Component {
     this.setState({ cards: [...cards, { cardDescription,
       cardName,
       cardImage,
+      backGroundImage,
       cardAttr1,
       cardAttr2,
       cardAttr3,
@@ -52,6 +66,7 @@ class Table extends React.Component {
     cardDescription: '',
     cardName: '',
     cardImage: '',
+    backGroundImage: getRamdowImage(),
     cardAttr1: '0',
     cardAttr2: '0',
     cardAttr3: '0',
@@ -143,6 +158,7 @@ class Table extends React.Component {
       cardAttr2,
       cardAttr3,
       cardImage,
+      backGroundImage,
       cardRare,
       cardTrunfo,
       isSaveButtonDisabled,
@@ -161,8 +177,17 @@ class Table extends React.Component {
     return (
       <div>
         <div className='input-card'>
-          <h1>Tryunfo</h1>
-          <Form
+          <div className='form-div'>
+            <div className='input-title-div'>
+              <h3 className='input-title'>Criar card</h3>
+            </div>
+            <div className='text-div'>
+              <text className='input-text'>Cada atributo não pode ser um número negativo, e nem um número maior do que 90,
+                os três atributos somados não podem passar de 210.<br></br>Só é possível possuir uma carta "GIGACHAD".
+              </text>
+            </div>
+          <div className='only-form'> 
+          <Form 
             onInputChange={ this.handleChange }
             isSaveButtonDisabled={ isSaveButtonDisabled }
             onSaveButtonClick={ this.save }
@@ -175,8 +200,11 @@ class Table extends React.Component {
             cardRare={ cardRare }
             cardTrunfo={ cardTrunfo }
             hasTrunfo={ hasTrunfo }
-          />
-          <div className='preview card'>
+            />
+          </div>
+          </div>
+          <div className='preview-card'>
+          <h3 className='card-preview-title'>Card Preview</h3>
           <Card
             returnHasTrunfo={ returnHasTrunfo }
             cardPreview={ tru }
@@ -186,12 +214,14 @@ class Table extends React.Component {
             cardAttr2={ cardAttr2 }
             cardAttr3={ cardAttr3 }
             cardImage={ cardImage }
+            backGroundImage={backGroundImage}
             cardRare={ cardRare }
             cardTrunfo={ cardTrunfo }
             />
           </div>
         </div>
         <div className='done-cards'>
+          <div className='filter-div'>
           <input
             disabled={ trunfoFilter }
             data-testid="name-filter"
@@ -219,6 +249,8 @@ class Table extends React.Component {
             checked={ trunfoFilter }
             onClick={ this.handleChange }
           />
+          </div>
+          <div className='only-cards-div has-scrollbar'>
           {cardsFiltered.map((ele) => (<Card
             key={ ele.cardName }
             returnHasTrunfo={ returnHasTrunfo }
@@ -229,9 +261,11 @@ class Table extends React.Component {
             cardAttr2={ ele.cardAttr2 }
             cardAttr3={ ele.cardAttr3 }
             cardImage={ ele.cardImage }
+            backGroundImage={ ele.backGroundImage}
             cardRare={ ele.cardRare }
             cardTrunfo={ ele.cardTrunfo }
-          />))}
+            />))}
+          </div>
         </div>
       </div>
     );

@@ -15,6 +15,7 @@ class Card extends React.Component {
     const { cardAttr2 } = this.props;
     const { cardAttr3 } = this.props;
     const { cardImage } = this.props;
+    const { backGroundImage } = this.props;
     const { cardRare } = this.props;
     const { cardTrunfo } = this.props;
     const { removeButton } = this.state;
@@ -23,13 +24,20 @@ class Card extends React.Component {
       if (cardTrunfo) returnHasTrunfo();
     };
     return (
-      <div className='card'>
+      <div className='sla-div'>
         {
           !removeButton
       && (
-        <div>
-          <h1 data-testid="name-card">{ cardName }</h1>
-          <img src={ cardImage } alt={ cardName } data-testid="image-card" />
+        <div className={cardPreview ? 'card-preview' : 'card'}>
+          <div className='card-title-div'>
+            <h1 data-testid="name-card">{ cardName }</h1>
+          </div>
+          <div className={cardPreview ? 'image-div-preview' : 'image-div'}>
+            <img className='background-img-blur' src={ backGroundImage } alt='no-img-blur'/>
+            <img className={cardPreview ? 'background-img-preview' : 'background-img'} src={ backGroundImage } alt='no-img'/>
+            <img className={cardPreview ? 'image-blur-preview' : 'image-blur'} src={ cardImage } alt='img-blur' data-testid="image-card" />
+            <img className={cardPreview ? 'image-preview' : 'image'} src={ cardImage } alt={ cardName } data-testid="image-card" />
+          </div>
           <p data-testid="description-card">{ cardDescription }</p>
           <p data-testid="attr1-card">{cardAttr1}</p>
           <p data-testid="attr2-card">{cardAttr2}</p>

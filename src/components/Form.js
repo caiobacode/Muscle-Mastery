@@ -1,5 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { pink } from '@mui/material/colors';
+import Checkbox from '@mui/material/Checkbox';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
+import FormControl from '@mui/material/FormControl';
+import TextField from '@mui/material/TextField';
+import Button  from '@mui/material/Button';
+import { styled } from '@mui/material/styles';
+import { purple } from '@mui/material/colors';
+
+const ColorButton = styled(Button)(({ theme }) => ({
+  color: theme.palette.getContrastText(purple[500]),
+  backgroundColor: '#2196f3',
+  '&:hover': {
+    backgroundColor: '#1976d2',
+  },
+  '&:disabled': {
+    backgroundColor: '#386494',
+    color: '#8c8c8c',
+  },
+}));
 
 class Form extends React.Component {
   render() {
@@ -19,83 +41,158 @@ class Form extends React.Component {
     const trunfo = (element) => {
       if (element === true) {
         return (
-          <p>Você já tem um Super Trunfo em seu baralho</p>
+          <div className='trunfo-div'>
+            <label htmlFor='disbled-input'>Você já tem um GIGACHAD em seu baralho</label>
+            <Checkbox
+              name="cardTrunfo"
+              data-testid="trunfo-input"
+              checked
+              onChange={ onInputChange }
+              sx={{
+                '& .MuiSvgIcon-root': { fontSize: 20 },
+                color: pink[800],
+                '&.Mui-checked': {
+                color: pink[600],
+                },
+              }}
+            />
+          </div>
         );
       }
 
       return (
-        <input
-          name="cardTrunfo"
-          type="checkbox"
-          data-testid="trunfo-input"
-          checked={ cardTrunfo }
-          onChange={ onInputChange }
-        />
+        <div className='trunfo-div'>
+        <label htmlFor='cardTrunfo' className='trunfo-label'>Sua carta é um GIGACHAD?</label>
+        <Checkbox
+        name="cardTrunfo"
+        data-testid="trunfo-input"
+        checked={ cardTrunfo }
+        onChange={ onInputChange }
+        sx={{
+          '& .MuiSvgIcon-root': { fontSize: 20 },
+          color: 'black',
+        }}
+      />
+        </div>
       );
     };
     return (
-      <form className='card-form'>
-        <input
+      <div className='card-form'>
+        <div className='small-form-div'>
+          <div className='cardname-div'>
+          <TextField
+          sx={{
+            width: '60%',
+            marginLeft: '20%'
+          }}
+          id="outlined-helperText"
+          label="Nome"
+          autoComplete='off'
           name="cardName"
-          type="text"
           data-testid="name-input"
           value={ cardName }
           onChange={ onInputChange }
-        />
-        <input
-          name="cardDescription"
-          type="textarea"
-          data-testid="description-input"
-          value={ cardDescription }
-          onChange={ onInputChange }
-        />
-        <input
+          />
+          </div>
+          <div className='attr-div'>
+          <div className='one-attr-div'>
+          <TextField
           name="cardAttr1"
+          id="outlined-number"
+          label="Volume"
           type="number"
-          data-testid="attr1-input"
           value={ cardAttr1 }
           onChange={ onInputChange }
-        />
-        <input
+          />
+          </div>
+          <div className='one-attr-div'>
+          <TextField
           name="cardAttr2"
+          id="outlined-number"
+          label="Definição"
           type="number"
-          data-testid="attr2-input"
           value={ cardAttr2 }
           onChange={ onInputChange }
-        />
-        <input
+          />
+          </div>
+          <div className='one-attr-div'>
+          <TextField
           name="cardAttr3"
+          sx={{
+            color: 'black'
+          }}
+          id="outlined-number"
+          label="Simetria"
           type="number"
-          data-testid="attr3-input"
           value={ cardAttr3 }
           onChange={ onInputChange }
-        />
-        <input
+          />
+          </div>
+          </div>
+          <FormControl sx={{ m: 1, minWidth: 80, maxWidth: '60%', marginLeft: '20%' }}>
+          <InputLabel sx={{fontSize: '17px'}} id="demo-simple-select-helper-label">Raridade</InputLabel>
+          <Select
+            labelId="demo-simple-select-helper-label"
+            id="demo-simple-select-helper"
+            name="cardRare"
+            label="Raridade"
+            data-testid="rare-input"
+            sx={{fontSize: '17px'}} 
+            value={ cardRare }          
+            onChange={ onInputChange }
+          >
+            <MenuItem value='normal'>Normal</MenuItem>
+            <MenuItem value='raro'>Raro</MenuItem>
+            <MenuItem value='muito raro'>Muito raro</MenuItem>
+          </Select>
+          </FormControl>
+          <TextField
+          sx={{
+            width: '60%',
+            marginLeft: '20%',
+            color: 'black',
+          }}
+          id="outlined-helperText"
+          label="Link da sua imagem"
+          placeholder='cole o link aqui'
+          autoComplete='off'
           name="cardImage"
-          type="text"
           data-testid="image-input"
           value={ cardImage }
           onChange={ onInputChange }
-        />
-        <select
-          name="cardRare"
-          data-testid="rare-input"
-          value={ cardRare }
-          onChange={ onInputChange }
-        >
-          <option value="normal">Normal</option>
-          <option value="raro">Raro</option>
-          <option value="muito raro">Muito raro</option>
-        </select>
-        { trunfo(hasTrunfo) }
-        <input
+          />
+        </div>
+        <div className='save-description-div'>
+          <div className='only-description-div'>
+          <label htmlFor='cardDescription' className='description-label'>Resumo</label>
+          <textarea
+            name="cardDescription"
+            type="textarea"
+            autoComplete="off"
+            maxLength={200}
+            className='description-input'
+            data-testid="description-input"
+            value={ cardDescription }
+            onChange={ onInputChange }
+            />
+          </div>
+          { trunfo(hasTrunfo) }
+          <ColorButton 
+          variant="contained"
+          sx={{
+            width: '40%',
+            marginLeft: '30%'
+          }}
           disabled={ isSaveButtonDisabled }
           type="submit"
           data-testid="save-button"
           value="Salvar"
           onClick={ onSaveButtonClick }
-        />
-      </form>
+          >
+            Salvar
+          </ColorButton>
+        </div>
+      </div>
     );
   }
 }
