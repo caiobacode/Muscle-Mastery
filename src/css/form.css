@@ -1,8 +1,8 @@
 .card-form {
-  background-color: white;
+  background-color: #f6f0bb;
   display: flex;
   width: 100%;
-  border-radius: 50px;
+  border-radius: 30px;
   border: solid black 1px;
   justify-content: space-around;
 }
@@ -16,10 +16,11 @@
 }
 
 .save-description-div {
-  background-color: white;
+  background-color: #f6f0bb;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  border-radius: 150px;
   width: 50%;
   height: 100%;
 }
@@ -46,7 +47,10 @@
 .description-input {
   width: 90%;
   height: 175px;
+  font-family: regularFont;
+  font-size: 18px;
   margin-left: 5%;
+  background-color: transparent;
   resize: none;
   border-radius: 5px;
   border: solid 2px #8c8c8c;
@@ -130,4 +134,90 @@
 
 .attr3-label {
   font-size: 20px;
+}
+
+.input-card {
+  margin-top: 40px;
+  border: #f6f0bb solid 3px;
+  width: 1400px;
+  height: 600px;
+  background-color: #17171c;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 30px;
+}
+
+.input-title {
+  font-family: titleFont;
+  font-size: 30px;
+  color: white;
+}
+
+.input-title-div {
+  height: 50px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-div {
+  height: 550px;
+  width: 65%;
+  border: solid #f6f0bb 2px;
+  background-color:#2b2b2b;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.only-form {
+  display: flex;
+  justify-content: center;
+  height: 60%;
+  width: 85%;
+}
+
+.text-div {
+  height: auto;
+  padding: 15px;
+  border: solid #f6f0bb 1px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  width: 65%;
+  border-radius: 10px;
+}
+
+.input-text {
+  font-family: myFont;
+  font-size: 16px;
+  color: white;
+}
+
+.preview-card {
+  height: 550px;
+  display: flex;
+  background-color: #2b2b2b;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 30%;
+  border: solid #f6f0bb 2px;
+  border-radius: 20px;
+}
+
+.trunfo-label {
+  font-family: myFont;
+  font-size: 13px;
+  color: #333333;
+}
+
+.card-preview-title {
+  font-family: titleFont;
+  color: white;
+  font-size: 30px;
 }

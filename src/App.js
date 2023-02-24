@@ -2,8 +2,9 @@ import React from 'react';
 import Table from './components/Table';
 import Header from './components/Header';
 import './css/App.css'
-import './css/inputDiv.css'
 import './css/form.css'
+import './css/Card.css'
+import './css/done.css'
 
 class App extends React.Component {
   render() {

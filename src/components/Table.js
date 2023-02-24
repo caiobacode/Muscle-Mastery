@@ -6,6 +6,16 @@ import img2 from '../media/form2.png'
 import img3 from '../media/form3.png'
 import img4 from '../media/form4.png'
 import img5 from '../media/form5.png'
+import { pink } from '@mui/material/colors';
+import Checkbox from '@mui/material/Checkbox';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
+import FormControl from '@mui/material/FormControl';
+import TextField from '@mui/material/TextField';
+import Button  from '@mui/material/Button';
+import { styled } from '@mui/material/styles';
+import { purple } from '@mui/material/colors';
 
 const allFormImages = [img1, img2, img3, img4, img5]
 const getRamdowImage = () => {
@@ -22,7 +32,7 @@ const actualCards = [
     cardAttr1: 66,
     cardAttr2: 69,
     cardAttr3: 68,
-    cardRare: 'Muito Raro',
+    cardRare: 'muito raro',
     cardTrunfo: false,
   }
 ]
@@ -222,35 +232,57 @@ class Table extends React.Component {
         </div>
         <div className='done-cards'>
           <div className='filter-div'>
-          <input
-            disabled={ trunfoFilter }
-            data-testid="name-filter"
-            type="text"
-            name="nameFilter"
-            value={ nameFilter }
-            onChange={ this.handleChange }
+          <div className='filter-title-div'>
+            <h3 className='filter-title'>Filtrar cards</h3>
+          </div>
+          <div className='only-filters-div'>
+          <TextField
+          id="outlined-helperText"
+          label="Nome"
+          autoComplete='off'
+          disabled={ trunfoFilter }
+          name="nameFilter"
+          data-testid="name-filter"
+          value={ nameFilter }
+          onChange={ this.handleChange }
           />
-          <select
+          <FormControl sx={{ m: 1, minWidth: 80 }}>
+          <InputLabel sx={{fontSize: '17px'}} id="demo-simple-select-helper-label">Raridade</InputLabel>
+          <Select
+            labelId="demo-simple-select-helper-label"
+            id="demo-simple-select-helper"
             disabled={ trunfoFilter }
             data-testid="rare-filter"
             name="rareFilter"
+            label="Raridade"
+            sx={{fontSize: '17px'}} 
+            value={ rareFilter }          
             onChange={ this.handleChange }
-            value={ rareFilter }
-          >
-            <option>todas</option>
-            <option>normal</option>
-            <option>raro</option>
-            <option>muito raro</option>
-          </select>
-          <input
-            data-testid="trunfo-filter"
-            type="checkbox"
-            name="trunfoFilter"
-            checked={ trunfoFilter }
-            onClick={ this.handleChange }
+            >
+            <MenuItem value='todas'>Todas</MenuItem>
+            <MenuItem value='normal'>Normal</MenuItem>
+            <MenuItem value='raro'>Raro</MenuItem>
+            <MenuItem value='muito raro'>Muito raro</MenuItem>
+          </Select>
+          </FormControl>
+          <div className='trunfo-filter-div'>
+
+          <label htmlFor='cardTrunfo' className='trunfo-filter'>Apenas o GIGACHAD</label>
+          <Checkbox
+          data-testid="trunfo-filter"
+          name="trunfoFilter"
+          checked={ trunfoFilter }
+          onClick={ this.handleChange }
+          sx={{
+            width: '25px',
+            '& .MuiSvgIcon-root': { fontSize: 20 },
+            color: 'black',
+          }}
           />
           </div>
-          <div className='only-cards-div has-scrollbar'>
+          </div>
+          </div>
+          <div className='only-cards-div'>
           {cardsFiltered.map((ele) => (<Card
             key={ ele.cardName }
             returnHasTrunfo={ returnHasTrunfo }

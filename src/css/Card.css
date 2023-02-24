@@ -1,0 +1,250 @@
+.card-preview {
+  height: 450px;
+  width: 336px;
+  background-color: black;
+  border-radius: 20px;
+  border: solid #EBBD63 1px;
+}
+
+.card {
+  margin-top: 25px;
+  height: 350px;
+  width: 275px;
+  border-radius: 20px;
+  background-color: black;
+  border: solid #EBBD63 1px;
+}
+
+.name-card {
+  color: #f6f0bb;
+  font-family: myFont;
+  font-size: 20px;
+  max-width: 250px;
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+}
+
+.card-title-div {
+  width: 100%;
+  border-radius: 15px 15px 0px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  background-color: black;
+}
+
+.image-div {
+  width: 100%;
+  height: 175px;
+  display: flex;
+  justify-content: center;
+  background-color: black;
+}
+
+.image-div-preview {
+  width: 100%;
+  height: 225px;
+  display: flex;
+  justify-content: center;
+  background-color: black;
+}
+
+.image-preview {
+  position: absolute;
+  max-width: 336px;
+  max-height: 225px;
+}
+
+.image {
+  position: absolute;
+  max-width: 275px;
+  max-height: 175px;
+}
+
+.image-blur-preview {
+  position: absolute;
+  width: 336px;
+  height: 225px;
+  filter: blur(5px);
+}
+
+.image-blur {
+  position: absolute;
+  width: 275px;
+  height: 175px;
+  filter: blur(3px);
+}
+
+.background-img-preview {
+  position: absolute;
+  max-width: 336px;
+  max-height: 225px;
+}
+
+.background-img {
+  position: absolute;
+  max-width: 275px;
+  max-height: 175px;
+}
+
+.background-img-blur {
+  width: 100%;
+  height: 100%;
+  filter: blur(2px);
+}
+
+.details-div {
+  display: flex;
+  height: 125px;
+}
+
+.details-div-preview {
+  display: flex;
+  height: 175px;
+}
+
+.small-card-div {
+  width: 40%;
+  background-color: black;
+  border-radius: 10px;
+}
+
+.small-texts-divs {
+  padding-left: 8px;
+  padding-top: 5px;
+  height: 70px;
+}
+
+.small-texts-divs-preview {
+  padding-left: 8px;
+  padding-top: 5px;
+  height: 90px;
+}
+
+.description-delete-div {
+  width: 60%;
+}
+
+.description-card {
+  font-family: regularFont;
+  font-size: 11px;
+  color: white;
+  max-width: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  display: -webkit-box;
+  -webkit-line-clamp: 5; 
+  -webkit-box-orient: vertical; 
+}
+
+.description-card-preview {
+  font-family: regularFont;
+  font-size: 15px;
+  color: white;
+  max-width: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  display: -webkit-box;
+  -webkit-line-clamp: 5; 
+  -webkit-box-orient: vertical; 
+}
+
+.card-description-div{
+  padding-top: 5px;
+  padding-left: 8px;
+  padding-right: 8px;
+  height: 85px;
+}
+
+.card-description-div-preview{
+  padding-top: 5px;
+  padding-left: 8px;
+  padding-right: 8px;
+  height: 120px;
+}
+
+.delete-trunfo-div {
+  background-color: black;
+  border-radius: 10px;
+  height: 35px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.gigachad {
+  font-size: 12px;
+  font-family: titleFont;
+  color: black;
+}
+
+.atr {
+  color: white;
+  font-family: regularFont;
+  font-size: 15px;
+}
+
+.atr-preview {
+  color: white;
+  font-family: regularFont;
+  font-size: 18px;
+}
+
+.rare-card {
+  color: black;
+  font-family: titleFont;
+  font-size: 14px;
+}
+
+.rare-card-preview {
+  color: black;
+  font-family: titleFont;
+  font-size: 18px;
+}
+
+.rare-div {
+  margin-top: 7.5px;
+  height: 35px;
+  display: flex;
+  width: 80%;
+  margin-left: 10%;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+}
+
+.rare-div-preview {
+  margin-top: 7.5px;
+  height: 45px;
+  display: flex;
+  width: 80%;
+  margin-left: 10%;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+}
+
+
+.muito-raro {
+  background: linear-gradient(to bottom right, #FF6766, #8870FF);
+}
+
+.normal {
+  background: linear-gradient(to bottom right, #D2D7D3, #60646D);
+}
+
+.raro {
+  background: linear-gradient(to bottom right, #BADA55, #1DABB8);
+}
+
+.trunfo-giga {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 25px;
+  padding: 5px 10px 5px 10px;
+  border-radius: 30px;
+  background: linear-gradient(to bottom right, #EB9532, #FEC606);
+}

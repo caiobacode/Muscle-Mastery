@@ -42,7 +42,7 @@ class Form extends React.Component {
       if (element === true) {
         return (
           <div className='trunfo-div'>
-            <label htmlFor='disbled-input'>Você já tem um GIGACHAD em seu baralho</label>
+            <label htmlFor='disbled-input' className='trunfo-label'>Você já tem um GIGACHAD em seu baralho</label>
             <Checkbox
               name="cardTrunfo"
               data-testid="trunfo-input"
@@ -169,7 +169,7 @@ class Form extends React.Component {
             name="cardDescription"
             type="textarea"
             autoComplete="off"
-            maxLength={200}
+            maxLength={100}
             className='description-input'
             data-testid="description-input"
             value={ cardDescription }
