@@ -5,21 +5,16 @@ import img1 from '../media/form1.png'
 import img2 from '../media/form2.png'
 import img3 from '../media/form3.png'
 import img4 from '../media/form4.png'
-import img5 from '../media/form5.png'
-import { pink } from '@mui/material/colors';
 import Checkbox from '@mui/material/Checkbox';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
-import Button  from '@mui/material/Button';
-import { styled } from '@mui/material/styles';
-import { purple } from '@mui/material/colors';
 
-const allFormImages = [img1, img2, img3, img4, img5]
+const allFormImages = [img1, img2, img3, img4]
 const getRamdowImage = () => {
-  const ramdowNumber = Math.floor(Math.random() * 5);
+  const ramdowNumber = Math.floor(Math.random() * 4);
   return allFormImages[ramdowNumber]
 }
 

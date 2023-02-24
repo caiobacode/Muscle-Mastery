@@ -51,7 +51,6 @@
   max-width: 1300px;
   border-radius: 20px;
   height: auto;
-  padding-right: 30px;
 }
 
 .trunfo-filter {
@@ -62,4 +61,18 @@
 .trunfo-filter-div {
   display: flex;
   align-items: center;
+}
+
+@media(max-width: 1400px) {
+  .done-cards {
+    width: 90%;
+    padding: 4%;
+  }
+}
+
+@media (max-width: 800px) {
+  .filter-div {
+    width: 90%;
+    margin-left: 5%;
+  }
 }

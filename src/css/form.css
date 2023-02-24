@@ -221,3 +221,100 @@
   color: white;
   font-size: 30px;
 }
+
+@media(max-width: 1400px) {
+  .input-card {
+    width: 98%;
+  }
+}
+
+@media(max-width: 1200px) {
+  .form-div {
+    width: 50%;
+  }
+
+  .preview-card {
+    width: 45%;
+  }
+}
+
+@media (max-width: 950px) {
+  .text-div {
+    width: 85%;
+  }
+
+  .input-text {
+    font-size: 14px;
+  }
+
+  .only-form {
+    width: 92%;
+  }
+
+  .card-form {
+    border-radius: 20px;
+  }
+
+  .small-form-div {
+    width: 60%;
+  }
+
+  .save-description-div {
+    width: 40%;
+  }
+}
+
+@media (max-width: 800px) {
+  .input-card {
+    flex-direction: column;
+    height: auto;
+    width: 90%;
+    padding: 4%;
+  }
+  .preview-card {
+    margin-top: 10px;
+    width: 90%;
+  }
+
+  .form-div {
+    width: 90%;
+  }
+}
+
+@media (max-width: 550px) {
+  .card-form {
+    flex-direction: column;
+  }
+  .small-form-div {
+    width: 100%;
+  }
+
+  .save-description-div {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .only-form {
+    margin-top: 15px;
+    height: auto;
+  }
+
+  .form-div {
+    height: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
+@media (max-width: 440px) {
+  .preview-card {
+    width: 100%;
+  }
+  .input-card {
+    width: 98%;
+    padding: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
