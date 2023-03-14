@@ -97,21 +97,27 @@ class Table extends React.Component {
 
   save = (event) => {
     event.preventDefault();
+
+    // Pegando os atributos da card no state
     const { cardDescription, cardName, cardImage, backGroundImage, cardAttr1,
-      cardAttr2, cardAttr3, cardRare,
-      gigaChad, cards } = this.state;
+      cardAttr2, cardAttr3, cardRare, gigaChad, cards } = this.state;
+
+    // Declarando somente a card para facilitar
+    const thisCard = { 
+      cardDescription, cardName, cardImage, backGroundImage,
+      cardAttr1, cardAttr2, cardAttr3, cardRare, gigaChad }
+
+    // Salvando card no localStorage, para quando recarregar a pagina, manter as cartas
+    const localStorageCards = localStorage.getItem('cards') ? JSON.parse(localStorage.getItem('cards')) : []
+    const newLocalStorage = [...localStorageCards, thisCard ]
+    localStorage.setItem('cards', JSON.stringify(newLocalStorage) )
+
     if (gigaChad === true) {
       this.setState({ hasTrunfo: true });
     }
-    this.setState({ cards: [...cards, { cardDescription,
-      cardName,
-      cardImage,
-      backGroundImage,
-      cardAttr1,
-      cardAttr2,
-      cardAttr3,
-      cardRare,
-      gigaChad }],
+
+    // Redefinindo state para o padrao, e salvando a carta, no campo "cards"
+    this.setState({ cards: [...cards, thisCard],
     cardDescription: '',
     cardName: '',
     cardImage: '',
@@ -124,55 +130,45 @@ class Table extends React.Component {
     isSaveButtonDisabled: true });
   };
 
-  ovo1 = () => {
+  validateTextFields = () => {
     const { cardDescription, cardName, cardImage, cardRare } = this.state;
-    let trfl = true;
-    let trfl2 = true;
-    if (cardDescription !== '' && cardName !== '') {
-      trfl = false;
+    if (cardDescription === '' || cardName === '') {
+      return false
     }
-    if (cardImage !== '' && cardRare !== '') {
-      trfl2 = false;
+    if (cardImage === '' || cardRare === '') {
+      return false
     }
-    if (trfl2 === false && trfl === false) {
+    return true
+  };
+
+  validateAttributes = () => {
+    const { cardAttr1, cardAttr2, cardAttr3 } = this.state;
+
+    const attr1 = parseInt(cardAttr1, 10);
+    const attr2 = parseInt(cardAttr2, 10);
+    const attr3 = parseInt(cardAttr3, 10);
+
+    const max = 210;
+
+    if (attr1 < 0 || attr1 > 90) {
       return false;
     }
+    if (attr2 < 0 || attr2 > 90) {
+      return false;
+    }
+    if (attr3 < 0 || attr3 > 90) {
+      return false;
+    }
+    if ((attr1 + attr2 + attr3) > max) {
+      return false;
+    }
+    return true
   };
 
-  ovo2 = () => {
-    const { cardAttr1, cardAttr2, cardAttr3 } = this.state;
-    const a1 = parseInt(cardAttr1, 10);
-    const a2 = parseInt(cardAttr2, 10);
-    const a3 = parseInt(cardAttr3, 10);
-    let r1 = true;
-    let r2 = true;
-    let r3 = true;
-    let r = true;
-    let o = true;
-    const max = 210;
-    const N9 = 90;
-    if (a1 >= 0 && a1 <= N9) {
-      r1 = false;
-    }
-    if (a2 >= 0 && a2 <= N9) {
-      r2 = false;
-    }
-    if (a3 >= 0 && a3 <= N9) {
-      r3 = false;
-    }
-    if ((a1 + a2 + a3) <= max) {
-      r = false;
-    }
-    if (r1 === false && r2 === false && r3 === false && r === false) {
-      o = false;
-    }
-    return o;
-  };
-
-  ovo = () => {
-    const r1 = this.ovo1();
-    const r2 = this.ovo2();
-    if (r1 === false && r2 === false) {
+  validateForms = () => {
+    const validTextFields = this.validateTextFields();
+    const validAtributes = this.validateAttributes();
+    if (validTextFields && validAtributes) {
       this.setState({ isSaveButtonDisabled: false });
     } else {
       this.setState({ isSaveButtonDisabled: true });
@@ -183,7 +179,7 @@ class Table extends React.Component {
     const { target } = event;
     const { name, value, type } = target;
     this.setState({ [name]: type === 'checkbox' ? target.checked : value }, () => {
-      this.ovo();
+      this.validateForms();
     });
   };
 
