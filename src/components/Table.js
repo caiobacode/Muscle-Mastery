@@ -28,7 +28,7 @@ const actualCards = [
     cardAttr2: 70,
     cardAttr3: 69,
     cardRare: 'muito raro',
-    cardTrunfo: false,
+    gigaChad: false,
   },
   {
     cardDescription: 'Arnold é um fisiculturista, ator, empresário e político, já conquistou 7 títulos do Mr.Olympia.',
@@ -39,7 +39,7 @@ const actualCards = [
     cardAttr2: 69,
     cardAttr3: 69,
     cardRare: 'muito raro',
-    cardTrunfo: false,
+    gigaChad: false,
   },
   {
     cardDescription: 'Detentor do recorde de oito títulos consecutivos de Mr. Olympia, Ronnie é o melhor da história.',
@@ -50,7 +50,7 @@ const actualCards = [
     cardAttr2: 69,
     cardAttr3: 66,
     cardRare: 'muito raro',
-    cardTrunfo: false,
+    gigaChad: false,
   },
   {
     cardDescription: '"THE MUTANT", Nick é um dos atletas que está evoluindo mais rápido, mesmo sendo novo, é enorme.',
@@ -61,18 +61,18 @@ const actualCards = [
     cardAttr2: 66,
     cardAttr3: 68,
     cardRare: 'raro',
-    cardTrunfo: false,
+    gigaChad: false,
   },
   {
     cardDescription: 'Ramom é famoso pela genética absurda, o Brasileiro conquistou o segundo lugar no Mr.Olympia',
-    cardName: 'Ramom dino',
+    cardName: 'Ramon dino',
     cardImage: 'https://amadahipertrofia.com/wp-content/uploads/2021/09/ramon-dino.jpg',
     backGroundImage: img2,
     cardAttr1: 68,
     cardAttr2: 69,
     cardAttr3: 68,
-    cardRare: 'raro',
-    cardTrunfo: false,
+    cardRare: 'muito raro',
+    gigaChad: false,
   },
 ]
 
@@ -86,21 +86,21 @@ class Table extends React.Component {
     cardAttr2: '0',
     cardAttr3: '0',
     cardRare: '',
-    cardTrunfo: false,
+    gigaChad: false,
     isSaveButtonDisabled: true,
     hasTrunfo: false,
     cards: actualCards,
     nameFilter: '',
     rareFilter: 'todas',
-    trunfoFilter: false,
+    gigachadFilter: false,
   };
 
   save = (event) => {
     event.preventDefault();
     const { cardDescription, cardName, cardImage, backGroundImage, cardAttr1,
       cardAttr2, cardAttr3, cardRare,
-      cardTrunfo, cards } = this.state;
-    if (cardTrunfo === true) {
+      gigaChad, cards } = this.state;
+    if (gigaChad === true) {
       this.setState({ hasTrunfo: true });
     }
     this.setState({ cards: [...cards, { cardDescription,
@@ -111,7 +111,7 @@ class Table extends React.Component {
       cardAttr2,
       cardAttr3,
       cardRare,
-      cardTrunfo }],
+      gigaChad }],
     cardDescription: '',
     cardName: '',
     cardImage: '',
@@ -120,7 +120,7 @@ class Table extends React.Component {
     cardAttr2: '0',
     cardAttr3: '0',
     cardRare: '',
-    cardTrunfo: false,
+    gigaChad: false,
     isSaveButtonDisabled: true });
   };
 
@@ -188,9 +188,9 @@ class Table extends React.Component {
   };
 
   handleFilter = (arr) => {
-    const { nameFilter, rareFilter, trunfoFilter } = this.state;
-    if (trunfoFilter) {
-      const onlyTrunfo = arr.filter((card) => card.cardTrunfo === true);
+    const { nameFilter, rareFilter, gigachadFilter } = this.state;
+    if (gigachadFilter) {
+      const onlyTrunfo = arr.filter((card) => card.gigaChad === true);
       return onlyTrunfo;
     }
     const filteredName = arr.filter((card) => card.cardName.includes(nameFilter));
@@ -209,13 +209,13 @@ class Table extends React.Component {
       cardImage,
       backGroundImage,
       cardRare,
-      cardTrunfo,
+      gigaChad,
       isSaveButtonDisabled,
       hasTrunfo,
       cards,
       nameFilter,
       rareFilter,
-      trunfoFilter,
+      gigachadFilter,
     } = this.state;
     const returnHasTrunfo = () => {
       this.setState({ hasTrunfo: false });
@@ -247,7 +247,7 @@ class Table extends React.Component {
             cardAttr3={ cardAttr3 }
             cardImage={ cardImage }
             cardRare={ cardRare }
-            cardTrunfo={ cardTrunfo }
+            gigaChad={ gigaChad }
             hasTrunfo={ hasTrunfo }
             />
           </div>
@@ -265,7 +265,7 @@ class Table extends React.Component {
             cardImage={ cardImage }
             backGroundImage={backGroundImage}
             cardRare={ cardRare }
-            cardTrunfo={ cardTrunfo }
+            gigaChad={ gigaChad }
             />
           </div>
         </div>
@@ -279,7 +279,7 @@ class Table extends React.Component {
           id="outlined-helperText"
           label="Nome"
           autoComplete='off'
-          disabled={ trunfoFilter }
+          disabled={ gigachadFilter }
           name="nameFilter"
           data-testid="name-filter"
           value={ nameFilter }
@@ -290,7 +290,7 @@ class Table extends React.Component {
           <Select
             labelId="demo-simple-select-helper-label"
             id="demo-simple-select-helper"
-            disabled={ trunfoFilter }
+            disabled={ gigachadFilter }
             data-testid="rare-filter"
             name="rareFilter"
             label="Raridade"
@@ -306,11 +306,11 @@ class Table extends React.Component {
           </FormControl>
           <div className='trunfo-filter-div'>
 
-          <label htmlFor='cardTrunfo' className='trunfo-filter'>Apenas o GIGACHAD</label>
+          <label htmlFor='gigachadFilter' className='trunfo-filter'>Apenas o GIGACHAD</label>
           <Checkbox
           data-testid="trunfo-filter"
-          name="trunfoFilter"
-          checked={ trunfoFilter }
+          name="gigachadFilter"
+          checked={ gigachadFilter }
           onClick={ this.handleChange }
           sx={{
             width: '25px',
@@ -334,7 +334,7 @@ class Table extends React.Component {
             cardImage={ ele.cardImage }
             backGroundImage={ ele.backGroundImage}
             cardRare={ ele.cardRare }
-            cardTrunfo={ ele.cardTrunfo }
+            gigaChad={ ele.gigaChad }
             />))}
           </div>
         </div>

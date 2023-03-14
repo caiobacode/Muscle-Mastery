@@ -19,7 +19,7 @@ class Card extends React.Component {
     const { cardImage } = this.props;
     const { backGroundImage } = this.props;
     const { cardRare } = this.props;
-    const { cardTrunfo } = this.props;
+    const { gigaChad } = this.props;
     const { removeButton } = this.state;
     const getRare = () => {
       const previewOrNot = cardPreview ? 'rare-div-preview' : 'rare-div';
@@ -28,7 +28,7 @@ class Card extends React.Component {
     }
     const handleClickDelete = () => {
       this.setState({ removeButton: true });
-      if (cardTrunfo) returnHasTrunfo();
+      if (gigaChad) returnHasTrunfo();
     };
     return (
       <div className='sla-div'>
@@ -61,7 +61,7 @@ class Card extends React.Component {
           <p className={cardPreview ? 'description-card-preview' : 'description-card'} data-testid="description-card">{ cardDescription }</p>
           </div>
           <div className='delete-trunfo-div'>
-          { cardTrunfo && 
+          { gigaChad && 
           <div className='trunfo-giga'>
           <h2 className='gigachad' data-testid="trunfo-card">GIGACHAD</h2> 
           </div>
@@ -97,7 +97,7 @@ Card.propTypes = {
   cardAttr3: PropTypes.string.isRequired,
   cardImage: PropTypes.string.isRequired,
   cardRare: PropTypes.string.isRequired,
-  cardTrunfo: PropTypes.bool.isRequired,
+  gigaChad: PropTypes.bool.isRequired,
 };
 
 export default Card;

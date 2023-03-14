@@ -32,7 +32,7 @@ class Form extends React.Component {
     const { cardAttr3 } = this.props;
     const { cardImage } = this.props;
     const { cardRare } = this.props;
-    const { cardTrunfo } = this.props;
+    const { gigaChad } = this.props;
     const { hasTrunfo } = this.props;
     const { isSaveButtonDisabled } = this.props;
     const { onInputChange } = this.props;
@@ -44,7 +44,7 @@ class Form extends React.Component {
           <div className='trunfo-div'>
             <label htmlFor='disbled-input' className='trunfo-label'>Você já tem um GIGACHAD em seu baralho</label>
             <Checkbox
-              name="cardTrunfo"
+              name="gigaChad"
               data-testid="trunfo-input"
               checked
               onChange={ onInputChange }
@@ -62,11 +62,11 @@ class Form extends React.Component {
 
       return (
         <div className='trunfo-div'>
-        <label htmlFor='cardTrunfo' className='trunfo-label'>Sua carta é um GIGACHAD?</label>
+        <label htmlFor='gigaChad' className='trunfo-label'>Sua carta é um GIGACHAD?</label>
         <Checkbox
-        name="cardTrunfo"
+        name="gigaChad"
         data-testid="trunfo-input"
-        checked={ cardTrunfo }
+        checked={ gigaChad }
         onChange={ onInputChange }
         sx={{
           '& .MuiSvgIcon-root': { fontSize: 20 },
@@ -205,7 +205,7 @@ Form.propTypes = {
   cardAttr3: PropTypes.string.isRequired,
   cardImage: PropTypes.string.isRequired,
   cardRare: PropTypes.string.isRequired,
-  cardTrunfo: PropTypes.bool.isRequired,
+  gigaChad: PropTypes.bool.isRequired,
   hasTrunfo: PropTypes.bool.isRequired,
   isSaveButtonDisabled: PropTypes.bool.isRequired,
   onInputChange: PropTypes.func.isRequired,
