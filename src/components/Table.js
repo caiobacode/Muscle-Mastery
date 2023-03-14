@@ -51,7 +51,7 @@ class Table extends React.Component {
       cardAttr1, cardAttr2, cardAttr3, cardRare, gigaChad };
 
     // Salvando card no localStorage, para quando recarregar a pagina, manter as cartas
-    setLocalStorage('cards', thisCard, 'add')
+    setLocalStorage( thisCard, 'add')
 
     if (gigaChad === true) {
       this.setState({ hasTrunfo: true });

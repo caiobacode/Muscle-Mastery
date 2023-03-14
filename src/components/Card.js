@@ -28,7 +28,7 @@ class Card extends React.Component {
       return `${previewOrNot} ${cardRare}`
     }
     const handleClickDelete = () => {
-      setLocalStorage('cards', cardName, 'delete')
+      setLocalStorage(cardName, 'delete')
       this.setState({ removeButton: true });
       if (gigaChad) returnHasTrunfo();
     };
