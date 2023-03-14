@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
+import setLocalStorage from '../services/setLocalStorageCards';
 
 class Card extends React.Component {
   state = {
@@ -27,6 +28,7 @@ class Card extends React.Component {
       return `${previewOrNot} ${cardRare}`
     }
     const handleClickDelete = () => {
+      setLocalStorage('cards', cardName, 'delete')
       this.setState({ removeButton: true });
       if (gigaChad) returnHasTrunfo();
     };
