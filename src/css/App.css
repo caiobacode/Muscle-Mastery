@@ -4,6 +4,21 @@
   background-color: #000000;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: #1f1714;
+}
+
+::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(to bottom, #b09f69, #EBBD63);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-image: linear-gradient(to bottom, #b09f69, #776455);
+  border-radius: 10px;
+}
+
 
 @font-face {
   font-family: myFont;
